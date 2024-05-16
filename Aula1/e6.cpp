@@ -11,17 +11,23 @@
 
 #include <iostream>
 
-void lerDados(){
+void lerDados(std::string * nome, float *salario){
     std::cout << "Digite seu nome: ";
-    std::cin >> nome;
-
+    std::cin >> *nome;
+    std::cout <<"Digite seu salário: ";
+    std::cin >> *salario;
 };
 
 class Funcionario{
 
     public:
         Funcionario(){}
-        ~Funcionario(){}        
+        ~Funcionario(){}
+
+        void setDados(std::string _nome, float _salario){
+            nome = _nome;
+            salario = _salario;
+        }  
 
     private:
         std::string nome;
@@ -29,8 +35,16 @@ class Funcionario{
 };
 
 int main(){
-    Funcionario funcionario;
-    std::string * nome = new std::string;
-    float * salario = new float;
-    lerDados();
+    auto fun = new Funcionario;
+    int i;
+    std::string nome;
+    float salario;
+    lerDados(&nome,&salario);
+    std::cout << nome;
+    fun->setDados(nome,salario);
+    while(i == 1){
+        int n;
+        std::cout << "Digite o que deseja realizar: ";
+        std::cin >> n;
+    }
 }
