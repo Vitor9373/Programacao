@@ -35,11 +35,11 @@ class Funcionario{
         }
 
         void ganhoAnual(float salario){
-            std::cout << "Seu salário anual é " << salario * 12 << " reais.";
+            std::cout << "Seu salário anual é " << salario * 12 << " reais.\n";
         }
 
         void exiDados(std::string nome, float salario){
-            std::cout << "Seu nome é " << nome << ", tendo um salário de " << salario << " reais, ganhando " << salario * 12 << " reais anualmente.";
+            std::cout << "Seu nome é " << nome << ", tendo um salário de " << salario << " reais, ganhando " << salario * 12 << " reais anualmente.\n";
         }
 
     private:
@@ -63,8 +63,8 @@ int main(){
         std::cin >> n;
         switch(n){
             case 1:
-                funcionario.addAumento(salario);
-                std::cout << "Seu salário agora é " << funcionario.getSalario() << " reais.";
+                salario = funcionario.addAumento(salario);
+                std::cout << "Seu salário agora é " << funcionario.getSalario() << " reais.\n";
                 break;
             case 2:
                 funcionario.ganhoAnual(salario);
