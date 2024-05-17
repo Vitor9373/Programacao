@@ -10,27 +10,13 @@
 // ganhoAnual() de ambas as classes (Administrativo e Tecnico).
 
 #include <iostream>
-
-void lerDados(std::string * nome, float * salario){
-    std::cout << "Digite seu nome: ";
-    std::cin >> *nome;
-    std::cout <<"Digite seu salário: ";
-    std::cin >> *salario;
-};
-
 class Funcionario{
-
     public:
-        Funcionario(){}
-        ~Funcionario(){}
+        Funcionario(){};
+        ~Funcionario(){};
 
         void setDados(std::string _nome, float _salario){
-            nome = _nome;
-            salario = _salario;
-        }
-
-        float aumento(float salario){
-
+            nome = +
         }
 
     private:
@@ -39,16 +25,12 @@ class Funcionario{
 };
 
 int main(){
-    auto fun = new Funcionario;
-    int i;
+    Funcionario funcionario;
     std::string nome;
     float salario;
-    lerDados(&nome,&salario);
-    std::cout << nome;
-    fun->setDados(nome,salario);
-    while(i == 1){
-        int n;
-        std::cout << "Digite o que deseja realizar:\n1 para adicionar um aumento;\n2 para ver seu ganho anual;\n3 para ver seus dados.\n:";
-        std::cin >> n;
-    }
+    std::cout << "Digite seu nome: ";
+    std::cin >> nome;
+    std::cout << "Digite seu salário: ";
+    std::cin >> salario;
+    funcionario.setDados(nome,salario);
 }
