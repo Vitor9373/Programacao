@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-void lerDados(std::string * nome, float *salario){
+void lerDados(std::string * nome, float * salario){
     std::cout << "Digite seu nome: ";
     std::cin >> *nome;
     std::cout <<"Digite seu salário: ";
@@ -27,7 +27,11 @@ class Funcionario{
         void setDados(std::string _nome, float _salario){
             nome = _nome;
             salario = _salario;
-        }  
+        }
+
+        float aumento(float salario){
+
+        }
 
     private:
         std::string nome;
@@ -44,7 +48,11 @@ int main(){
     fun->setDados(nome,salario);
     while(i == 1){
         int n;
-        std::cout << "Digite o que deseja realizar: ";
+        std::cout << "Digite o que deseja realizar:\n1 para adicionar um aumento;\n2 para ver seu ganho anual;\n3 para ver seus dados.\n:";
         std::cin >> n;
+        switch(n){
+            case 1:
+                Funcionario->aumento(salario);
+        }
     }
 }
