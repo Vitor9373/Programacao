@@ -11,13 +11,6 @@
 
 #include <iostream>
 
-void lerDados(std::string * nome, float * salario){
-    std::cout << "Digite seu nome: ";
-    std::cin >> *nome;
-    std::cout <<"Digite seu salário: ";
-    std::cin >> *salario;
-};
-
 class Funcionario{
 
     public:
@@ -29,8 +22,24 @@ class Funcionario{
             salario = _salario;
         }
 
-        float aumento(float salario){
+        float getSalario(){
+            return salario;
+        }
 
+        float addAumento(float salario){
+            float aumento;
+            std::cout << "Digite o valor do aumento: ";
+            std::cin >> aumento;
+            salario += aumento;
+            return salario;
+        }
+
+        void ganhoAnual(float salario){
+            std::cout << "Seu salário anual é " << salario * 12 << " reais.\n";
+        }
+
+        void exiDados(std::string nome, float salario){
+            std::cout << "Seu nome é " << nome << ", tendo um salário de " << salario << " reais, ganhando " << salario * 12 << " reais anualmente.\n";
         }
 
     private:
@@ -39,16 +48,33 @@ class Funcionario{
 };
 
 int main(){
-    auto fun = new Funcionario;
-    int i;
+    Funcionario funcionario;
     std::string nome;
     float salario;
-    lerDados(&nome,&salario);
-    std::cout << nome;
-    fun->setDados(nome,salario);
+    int i = 1;
+    std::cout << "Digite seu nome: ";
+    std::cin >> nome;
+    std::cout << "Digite seu salário: ";
+    std::cin >> salario;
+    funcionario.setDados(nome,salario);
     while(i == 1){
         int n;
         std::cout << "Digite o que deseja realizar:\n1 para adicionar um aumento;\n2 para ver seu ganho anual;\n3 para ver seus dados.\n:";
         std::cin >> n;
+        switch(n){
+            case 1:
+                salario = funcionario.addAumento(salario);
+                std::cout << "Seu salário agora é " << funcionario.getSalario() << " reais.\n";
+                break;
+            case 2:
+                funcionario.ganhoAnual(salario);
+                break;
+            case 3:
+                funcionario.exiDados(nome,salario);
+                break;
+        }
+        std::cout << "Deseja realizar mais algo? Digite 1 para sim e 0 para não:";
+        std::cin >> i;
     }
+    return 0;
 }
